@@ -1,0 +1,4 @@
+name: my-custom-entity-site
+recipe: drupal10
+config:
+  webroot: web

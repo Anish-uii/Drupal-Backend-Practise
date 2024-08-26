@@ -1,0 +1,7 @@
+uuid: 98e40ec2-ff96-47c6-8bcb-a5b2982991a6
+langcode: en
+status: true
+dependencies: {  }
+id: new_movie
+label: 'New Movie'
+description: ''

@@ -1,0 +1,7 @@
+name: 'User OTLL'
+type: module
+description: 'Generates a one-time login link for a user based on their user ID.'
+core_version_requirement: ^10
+package: Custom
+dependencies:
+  - drupal:node

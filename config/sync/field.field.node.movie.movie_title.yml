@@ -1,0 +1,21 @@
+uuid: b15e98f4-519d-4192-b4ea-9ea09545e57d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.movie_title
+    - node.type.movie
+_core:
+  default_config_hash: kRTpzW_AnTz3wSBmizjdlBbi21GJMs7rU9FMiKUzjC0
+id: node.movie.movie_title
+field_name: movie_title
+entity_type: node
+bundle: movie
+label: 'Movie Title'
+description: 'The title of the Movie.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

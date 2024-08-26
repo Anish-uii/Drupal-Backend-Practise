@@ -1,0 +1,5 @@
+name: 'Custom Events'
+description: 'Module for using custom event services.'
+core_version_requirement: ^10 || ^11
+type: module
+package: Custom Events

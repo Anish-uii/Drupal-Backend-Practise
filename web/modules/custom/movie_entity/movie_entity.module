@@ -1,0 +1,112 @@
+<?php
+
+declare(strict_types=1);
+
+/**
+ * @file
+ * Provides a movie entity entity type.
+ */
+
+use Drupal\Core\Render\Element;
+use Drupal\user\UserInterface;
+use Drupal\node\Entity\Node;
+use Drupal\Core\Messenger\MessengerInterface;
+
+/**
+ * Implements hook_user_cancel().
+ */
+function movie_entity_user_cancel($edit, UserInterface $account, $method): void {
+  switch ($method) {
+    case 'user_cancel_block_unpublish':
+      // Unpublish movie entities.
+      $storage = \Drupal::entityTypeManager()->getStorage('movie_entity');
+      $movie_entity_ids = $storage->getQuery()
+        ->condition('uid', $account->id())
+        ->condition('status', 1)
+        ->accessCheck(FALSE)
+        ->execute();
+      foreach ($storage->loadMultiple($movie_entity_ids) as $movie_entity) {
+        $movie_entity->set('status', FALSE)->save();
+      }
+      break;
+
+    case 'user_cancel_reassign':
+      // Anonymize movie entities.
+      $storage = \Drupal::entityTypeManager()->getStorage('movie_entity');
+      $movie_entity_ids = $storage->getQuery()
+        ->condition('uid', $account->id())
+        ->accessCheck(FALSE)
+        ->execute();
+      foreach ($storage->loadMultiple($movie_entity_ids) as $movie_entity) {
+        $movie_entity->setOwnerId(0)->save();
+      }
+      break;
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_predelete() for user entities.
+ */
+function movie_entity_user_predelete(UserInterface $account): void {
+  // Delete movie entities that belong to this account.
+  $storage = \Drupal::entityTypeManager()->getStorage('movie_entity');
+  $movie_entity_ids = $storage->getQuery()
+    ->condition('uid', $account->id())
+    ->accessCheck(FALSE)
+    ->execute();
+  $storage->delete($storage->loadMultiple($movie_entity_ids));
+  
+  // Delete old revisions.
+  $movie_entity_ids = $storage->getQuery()
+    ->allRevisions()
+    ->condition('uid', $account->id())
+    ->accessCheck(FALSE)
+    ->execute();
+  foreach (array_keys($movie_entity_ids) as $revision_id) {
+    $storage->deleteRevision($revision_id);
+  }
+}
+
+/**
+ * Implements hook_menu_links_discovered_alter().
+ */
+function movie_entity_menu_links_discovered_alter(&$links) {
+  $links['entity.movie_budget_config_form'] = [
+    'title' => 'Movie Budget Configuration',
+    'description' => 'Configure the budget-friendly amount for movies.',
+    'route_name' => 'movie_entity.movie_budget_config_form',
+    'parent' => 'system.admin_reports',
+    'weight' => 10,
+  ];
+}
+/**
+ * Implements hook_preprocess_node().
+ */
+function movie_entity_preprocess_node(array &$variables) {
+  if ($variables['node']->getType() === 'movie') {
+    $config = \Drupal::config('movie_entity.settings');
+    $budget_friendly_amount = $config->get('budget_friendly_amount');
+
+    $movie_price = $variables['node']->get('price')->value; 
+
+    $budget_message = '';
+    if ($budget_friendly_amount > $movie_price) {
+      $budget_message = '<div class="movie-budget-message"><h2><i>The movie is under budget</i></h2></div>';
+    }
+    elseif ($budget_friendly_amount < $movie_price) {
+      $budget_message = '<div class="movie-budget-message"><h2><i>The movie is over budget</i></h2></div>';
+    }
+    else {
+      $budget_message = '<div class="movie-budget-message"><h2><i>The movie is within budget</i></h2></div>';
+    }
+
+    $variables['content']['movie_budget_message'] = [
+      '#type' => 'markup',
+      '#markup' => $budget_message,
+      '#weight' => -10,
+      '#cache' => [
+        'max-age' => 0, 
+      ],
+    ];
+  }
+}

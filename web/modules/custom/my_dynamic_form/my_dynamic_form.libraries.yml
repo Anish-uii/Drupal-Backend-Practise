@@ -1,0 +1,4 @@
+dynamic_form_styles:
+  css:
+    theme:
+      css/dynamic_form_styles.css: {}

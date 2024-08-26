@@ -1,0 +1,17 @@
+services:
+  my_config_events_subscriber:
+    class: '\Drupal\custom_events\EventSubscriber\ConfigEventsSubscriber'
+    tags:
+      - { name: 'event_subscriber'}
+
+  custom_events.user_login_subscriber:
+    class: Drupal\custom_events\EventSubscriber\UserLoginSubscriber
+    arguments: ['@database', '@date.formatter', '@messenger']
+    tags:
+      - { name: event_subscriber }
+
+  custom_events.node_view_subscriber:
+    class: Drupal\custom_events\EventSubscriber\NodeViewSubscriber
+    arguments: ['@messenger', '@date.formatter']
+    tags:
+      - { name: event_subscriber }

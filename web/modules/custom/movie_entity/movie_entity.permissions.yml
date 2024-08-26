@@ -1,0 +1,3 @@
+administer movie_entity:
+  title: 'Administer movie entities'
+  restrict access: true

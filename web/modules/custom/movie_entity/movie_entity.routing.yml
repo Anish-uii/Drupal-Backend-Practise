@@ -1,0 +1,15 @@
+entity.movie_entity.settings:
+  path: 'admin/structure/movie-entity'
+  defaults:
+    _form: '\Drupal\movie_entity\Form\MovieEntitySettingsForm'
+    _title: 'Movie entity'
+  requirements:
+    _permission: 'administer movie_entity'
+
+movie_entity.movie_budget_config_form:
+  path: '/admin/config/budget-config'
+  defaults:
+    _form: '\Drupal\movie_entity\Form\MovieBudgetConfigForm'
+    _title: 'Budget-Friendly Amount'
+  requirements:
+    _permission: 'administer site configuration'

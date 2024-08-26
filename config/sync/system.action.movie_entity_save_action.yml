@@ -1,0 +1,13 @@
+uuid: f516ebda-0997-4d79-9b46-126ed8a5dd70
+langcode: en
+status: true
+dependencies:
+  module:
+    - movie_entity
+_core:
+  default_config_hash: aPlDdKAZnmN_Yj8bjbRqXelqe2vNSPCw_HyxrRQBZ8c
+id: movie_entity_save_action
+label: 'Save movie entities'
+type: movie_entity
+plugin: 'entity:save_action:movie_entity'
+configuration: {  }

@@ -1,0 +1,5 @@
+name: Movie Entity Type
+core_version_requirement: ^10 || ^11
+description: 'Entity Type for Movies.'
+type: module
+package: Custom Entities

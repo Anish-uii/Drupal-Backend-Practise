@@ -1,0 +1,26 @@
+{{ attach_library('block_form/form_data_block') }}
+
+<div class="form-container">
+  <h2>Flagship Programmes</h2>
+
+  <div class="grid-container">
+    {% if data|length %}
+      {% for row in data %}
+        <div class="grid-item">
+          <h3>{{ row.name }}</h3>
+          <div class="underline"></div>
+          <div class="labels">
+            <p><strong>{{ row.label_1 }}</strong></p>
+            <p class="highlighted">{{ row.value_1 }}</p>
+            <p><strong>{{ row.label_2 }}</strong></p>
+            <p class="highlighted">{{ row.value_2 }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <div class="grid-item empty">
+        <p>{{ 'No data available.'|t }}</p>
+      </div>
+    {% endif %}
+  </div>
+</div>

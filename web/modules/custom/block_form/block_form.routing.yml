@@ -1,0 +1,15 @@
+block_form.ajax_form:
+  path: '/programmes'
+  defaults:
+    _title: 'Flagship Programmes'
+    _form: 'Drupal\block_form\Form\FlagshipProgrammes'
+  requirements:
+    _permission: access the programmes form 
+
+block_form.dynamic_form:
+  path: '/programmes-example'
+  defaults:
+    _title: 'Flagship Programmes'
+    _form: 'Drupal\block_form\Form\FlagshipDynamic'
+  requirements:
+    _permission: access the programmes form 

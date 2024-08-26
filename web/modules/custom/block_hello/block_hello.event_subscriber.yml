@@ -1,0 +1,5 @@
+services:
+  block_hello.event_subscriber:
+    class: Drupal\block_hello\EventSubscriber\CustomWelcomeSubscriber
+    tags:
+      - { name: event_subscriber }

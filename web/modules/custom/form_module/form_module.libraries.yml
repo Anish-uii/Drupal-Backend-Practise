@@ -1,0 +1,14 @@
+user_css:
+  version: 1.x
+  css:
+    theme:
+      css/user.css: {}
+    
+user_js:
+  version: 1.x
+  js:
+    js/user.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings

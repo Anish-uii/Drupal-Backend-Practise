@@ -1,0 +1,5 @@
+name: 'My Routing Module'
+type: module
+description: 'Custom module for displaying custom content using routing.'
+core_version_requirement: ^10 || ^11
+package: Custom

@@ -1,0 +1,7 @@
+movie_entity.movie_budget_config_form:
+  title: 'Budget-Friendly Amount'
+  description: 'Configure the budget-friendly amount for movies.'
+  route_name: 'movie_entity.movie_budget_config_form'
+  parent: 'system.admin'
+  weight: 10
+  menu_name: administration

@@ -1,0 +1,4 @@
+services:
+  dependency_inject_services:
+    class: Drupal\dependency_inject_services\services\DatabaseInsert
+    arguments: ['@database']

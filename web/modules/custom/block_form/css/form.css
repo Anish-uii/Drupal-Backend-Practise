@@ -1,0 +1,53 @@
+/* Style the form container */
+#block-form-data-block {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+/* Style the fieldset title */
+fieldset#groups {
+  margin-bottom: 20px;
+}
+
+/* Style the fieldset titles */
+fieldset.details > legend {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+/* Style the text fields */
+input[type="textfield"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Style the submit buttons */
+input[type="submit"] {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: #fff;
+}
+
+input[type="submit"]:hover {
+  background-color: rgb(46, 131, 191);
+  cursor: pointer;
+  color: #FFF;
+  border: none;
+}
+
+/* Add margin to individual groups */
+fieldset.details {
+  margin-bottom: 15px;
+}
+
+/* Style the group container */
+#group-wrapper {
+  margin-top: 20px;
+}
