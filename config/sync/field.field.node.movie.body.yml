@@ -1,0 +1,26 @@
+uuid: ca13db26-2b19-4fac-999d-56e1aa9c342f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.movie
+  module:
+    - text
+_core:
+  default_config_hash: wyBn9hRRz4fdEsN0_SG51Y7K1LHgeNqKK7BymvNuGIg
+id: node.movie.body
+field_name: body
+entity_type: node
+bundle: movie
+label: Body
+description: 'More specific information about the Movie.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

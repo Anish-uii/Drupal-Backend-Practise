@@ -1,0 +1,4 @@
+access the programmes form:
+  title: 'Access the custom programmes form'
+  description: 'Permission to access the custom form.'
+  restrict access: TRUE

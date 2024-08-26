@@ -1,0 +1,64 @@
+<?php
+
+use Drupal\Core\Database\Database;
+
+/**
+ * Implements hook_schema().
+ */
+function my_dynamic_form_schema() {
+  $schema['dynamic_form_data'] = [
+    'description' => 'Stores data from the dynamic form.',
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'not null' => TRUE,
+      ],
+      'group_name' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ],
+      'first_label_name' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ],
+      'first_label_value' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ],
+      'second_label_name' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ],
+      'second_label_value' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ],
+    ],
+    'primary key' => ['id'],
+  ];
+
+  return $schema;
+}
+
+/**
+ * Implements hook_install().
+ */
+function my_dynamic_form_install() {
+  // Get the schema definition.
+  $schema = my_dynamic_form_schema();
+  // Create the table when the module is installed.
+  Database::getConnection()->schema()->createTable('dynamic_form_data', $schema['dynamic_form_data']);
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function my_dynamic_form_uninstall() {
+  // Drop the table when the module is uninstalled.
+  Database::getConnection()->schema()->dropTable('dynamic_form_data');
+}

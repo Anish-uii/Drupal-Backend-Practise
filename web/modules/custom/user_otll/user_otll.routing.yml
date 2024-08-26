@@ -1,0 +1,7 @@
+user_otll.generate_otll:
+  path: '/admin/config/people/user-otll'
+  defaults:
+    _form: '\Drupal\user_otll\Form\UserOtllForm'
+    _title: 'Generate User OTLL'
+  requirements:
+    _permission: 'access otll form'

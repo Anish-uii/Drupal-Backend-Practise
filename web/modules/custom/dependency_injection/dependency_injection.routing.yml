@@ -1,0 +1,15 @@
+without_current_user:
+  path: '/without-current-user'
+  defaults:
+    _form: '\Drupal\dependency_injection\Form\WithoutCurrentUser'
+    _title: 'Form'
+  requirements:
+   _permission: 'access content'
+
+with_current_user:
+  path: '/with-current-user'
+  defaults:
+    _form: '\Drupal\dependency_injection\Form\WithCurrentUser'
+    _title: 'Form'
+  requirements:
+   _permission: 'access content'

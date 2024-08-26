@@ -1,0 +1,18 @@
+my_routing_module.custom_page:
+  path: '/custom-routing-page'
+  defaults: 
+    _controller: '\Drupal\my_routing_module\Controller\RoutingController::routingCustomPage'
+    _title: 'Routing for the Custom page'
+  requirements:
+    # _permission: 'access the routing custom page'
+    _custom_access: '\Drupal\my_routing_module\Access\RoutingAccessCheck::access'
+
+my_routing_module.custom_parameter:
+  path: '/custom-routing-page/campaign/value/{param}'
+  defaults:
+    _controller: '\Drupal\my_routing_module\Controller\RoutingController::customParameter'
+    _title: 'Dynamic Variable Page'
+  requirements:
+    # _permission: 'access the routing page'
+    _custom_access: '\Drupal\my_routing_module\Access\RoutingAccessCheck::access'
+

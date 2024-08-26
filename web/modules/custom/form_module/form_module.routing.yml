@@ -1,0 +1,31 @@
+form_module.example:
+  path: '/form-module/user-register'
+  defaults:
+    _title: 'User Registeration'
+    _form: 'Drupal\form_module\Form\ExampleForm'
+  requirements:
+    _permission: 'access content'
+
+user.ajax:
+  path: '/form-module/user-ajax-register'
+  defaults:
+    _title: 'User Registeration (Ajax)'
+    _form: 'Drupal\form_module\Form\UserAjaxForm'
+  requirements:
+    _permission: 'access content'
+
+user_register.ajax:
+  path: '/user-ajax'
+  defaults:
+    _title: 'User Registeration'
+    _form: 'Drupal\form_module\Form\UserRegisterAjaxForm'
+  requirements:
+    _permission: 'access content'
+
+example_form.ajax:
+  path: '/form-module/example-ajax-register'
+  defaults:
+    _title: 'User Registeration (Ajax)'
+    _form: 'Drupal\form_module\Form\ExampleAjaxForm'
+  requirements:
+    _permission: 'access content'

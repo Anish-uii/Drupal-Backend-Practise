@@ -1,0 +1,5 @@
+name: 'Form for Custom Block'
+description: 'Form to take input data for the Custom Block'
+type: module
+core_version_requirement: ^10 || ^11
+package: Custom Blocks 

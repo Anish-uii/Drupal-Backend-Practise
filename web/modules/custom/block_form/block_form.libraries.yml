@@ -1,0 +1,10 @@
+form_css:
+  version: 1.x
+  css:
+    theme:
+      css/form.css: {}
+
+form_data_block:
+  css:
+    theme:
+      css/form_data_block.css: {}

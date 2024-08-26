@@ -1,0 +1,5 @@
+name: Dependency Injection of Services
+description: Using dependency injection in custom services
+type: module
+core_version_requirement: ^10 || ^11
+package: Custom

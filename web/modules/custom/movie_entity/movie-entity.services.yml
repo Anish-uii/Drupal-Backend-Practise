@@ -1,0 +1,6 @@
+services:
+  movie_entity.movie_budget_subscriber:
+    class: Drupal\movie_entity\EventSubscriber\MovieBudgetSubscriber
+    arguments: ['@messenger']
+    tags:
+      - { name: 'event_subscriber' }

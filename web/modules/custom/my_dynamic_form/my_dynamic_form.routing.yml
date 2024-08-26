@@ -1,0 +1,7 @@
+my_dynamic_form.form:
+  path: '/dynamic-form'
+  defaults:
+    _title: 'Dynamic Form'
+    _form: '\Drupal\my_dynamic_form\Form\DynamicForm'
+  requirements:
+    _permission: 'access content'

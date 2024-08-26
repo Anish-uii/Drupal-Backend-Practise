@@ -1,0 +1,4 @@
+access the routing custom page:
+  title: 'Access the routing custom page'
+  description: 'Permission to access the routing of the custom page.'
+  restrict access: TRUE
